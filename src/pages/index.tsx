@@ -84,7 +84,7 @@ export default function Home() {
             : data
                 .slice()
                 .reverse()
-                .map((list) => {
+                .map((list: any) => {
                   return (
                     <li key={list.id}>
                       <Link href={`/${list.id}`}>
