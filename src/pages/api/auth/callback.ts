@@ -21,7 +21,7 @@ const handler: NextApiHandler = async (req, res) => {
     await supabase.auth.exchangeCodeForSession(String(code));
   }
 
-  res.redirect(getURL());
+  res.redirect("/");
 };
 
 export default handler;

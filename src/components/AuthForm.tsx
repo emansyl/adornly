@@ -8,6 +8,7 @@ import {
   CardContent,
   Card,
 } from "@/components/ui/card";
+import { getURL } from "next/dist/shared/lib/utils";
 
 export default function AuthForm() {
   const supabase = createClientComponentClient();
@@ -25,7 +26,7 @@ export default function AuthForm() {
           theme="dark"
           showLinks={false}
           providers={["google"]}
-          redirectTo="http://localhost:3000/api/auth/callback"
+          redirectTo={`${getURL()}/api/auth/callback`}
         />
       </CardContent>
     </Card>
