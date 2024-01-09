@@ -91,8 +91,16 @@ function AddItemForm({ listId }: { listId: string }) {
     return;
   }
 
-  if (user?.id !== data?.userId) {
-    return;
+  if (!user || user?.id !== data?.userId) {
+    return (
+      <Card className="w-full">
+        <CardHeader>
+          <div className="space-y-1.5">
+            <CardTitle>{data?.title}</CardTitle>
+          </div>
+        </CardHeader>
+      </Card>
+    );
   }
 
   return (
