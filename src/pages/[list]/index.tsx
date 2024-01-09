@@ -36,7 +36,7 @@ export default function Home() {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold">Saved Links:</h2>
           <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
               <Button
                 onClick={async () => {
                   const shareUrl = getURL() + removeLeadingSlash(pathname);
@@ -49,10 +49,10 @@ export default function Home() {
                 <Share className="w-4 h-4" />
                 Share List
               </Button>
-              <TooltipContent>
-                <p>Copy share link</p>
-              </TooltipContent>
             </TooltipTrigger>
+            <TooltipContent>
+              <p>Copy share link</p>
+            </TooltipContent>
           </Tooltip>
         </div>
         <ItemList listId={listId} />

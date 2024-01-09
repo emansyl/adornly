@@ -19,7 +19,7 @@ export function ListItem({
 }) {
   const deleteItem = useDeleteItem();
   return (
-    <li className="flex items-start justify-between bg-gray-100 p-4 rounded-md">
+    <li className="flex items-start justify-between bg-gray-100 p-4 rounded-md ">
       {/* <img
         alt="Link preview image"
         className="rounded-md mr-4"
@@ -31,15 +31,15 @@ export function ListItem({
         }}
         width="60"
       /> */}
-      <div className="flex flex-col justify-between">
-        <div className="flex items-center justify-between w-full">
-          <a
+      <div className="flex flex-col justify-between overflow-hidden whitespace-nowrap overflow-ellipsis">
+        <div className="flex items-center justify-between w-full ">
+          <Link
             target="_blank"
-            className="text-blue-700 hover:text-blue-800 visited:text-purple-700"
+            className="text-blue-700 hover:text-blue-800 visited:text-purple-700 "
             href={url}
           >
             {url}
-          </a>
+          </Link>
         </div>
         <p className="mt-2 text-gray-600">{description}</p>
       </div>
