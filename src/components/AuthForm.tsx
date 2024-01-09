@@ -8,7 +8,7 @@ import {
   CardContent,
   Card,
 } from "@/components/ui/card";
-import { getURL } from "next/dist/shared/lib/utils";
+import { getURL } from "../lib/utils";
 
 export default function AuthForm() {
   const supabase = createClientComponentClient();
