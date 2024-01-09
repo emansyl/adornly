@@ -33,12 +33,13 @@ export function ListItem({
       /> */}
       <div className="flex flex-col justify-between">
         <div className="flex items-center justify-between w-full">
-          <Link
+          <a
+            target="_blank"
             className="text-blue-700 hover:text-blue-800 visited:text-purple-700"
-            href="#"
+            href={url}
           >
             {url}
-          </Link>
+          </a>
         </div>
         <p className="mt-2 text-gray-600">{description}</p>
       </div>
