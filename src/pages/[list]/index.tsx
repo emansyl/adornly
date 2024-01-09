@@ -17,9 +17,17 @@ import { Item } from "@/types/ItemType";
 import { useListDetails } from "@/hooks/useLists";
 import { Share } from "lucide-react";
 import { list } from "postcss";
+import { getURL, removeLeadingSlash } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 export default function Home() {
   const router = useRouter();
   const listId = router.query.list as string;
+  const pathname = usePathname();
 
   return (
     <main className="container mx-auto max-w-3xl px-4 py-8">
@@ -27,10 +35,25 @@ export default function Home() {
       <section className="mt-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold">Saved Links:</h2>
-          <Button size="sm" variant="outline">
-            <Share className="w-4 h-4" />
-            Share List
-          </Button>
+          <Tooltip>
+            <TooltipTrigger>
+              <Button
+                onClick={async () => {
+                  const shareUrl = getURL() + removeLeadingSlash(pathname);
+                  await navigator.clipboard.writeText(shareUrl);
+                  // alert(shareUrl);
+                }}
+                size="sm"
+                variant="outline"
+              >
+                <Share className="w-4 h-4" />
+                Share List
+              </Button>
+              <TooltipContent>
+                <p>Copy share link</p>
+              </TooltipContent>
+            </TooltipTrigger>
+          </Tooltip>
         </div>
         <ItemList listId={listId} />
       </section>

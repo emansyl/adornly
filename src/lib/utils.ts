@@ -16,3 +16,12 @@ export const getURL = () => {
   url = url.charAt(url.length - 1) === "/" ? url : `${url}/`;
   return url;
 };
+
+export function removeLeadingSlash(str: string): string {
+  // Check if the first character is a slash and remove it if present
+  if (str.startsWith("/")) {
+    return str.substring(1);
+  }
+  // Return the original string if no leading slash is found
+  return str;
+}

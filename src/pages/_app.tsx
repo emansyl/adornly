@@ -11,6 +11,7 @@ import {
   QueryClientProvider,
 } from "react-query";
 import NavBar from "@/components/NavBar";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -27,10 +28,12 @@ export default function App({
       supabaseClient={supabaseClient}
       initialSession={pageProps.initialSession}
     >
-      <QueryClientProvider client={queryClient}>
-        <NavBar />
-        <Component {...pageProps} />
-      </QueryClientProvider>
+      <TooltipProvider>
+        <QueryClientProvider client={queryClient}>
+          <NavBar />
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </TooltipProvider>
     </SessionContextProvider>
   );
 }
